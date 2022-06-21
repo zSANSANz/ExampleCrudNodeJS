@@ -4,6 +4,7 @@ const movies = require('./src/routes/movies');
 const users = require('./src/routes/users');
 const blogs = require('./src/routes/blogs');
 const barangs = require('./src/routes/barangs');
+const todos = require('./src/routes/todos');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
@@ -15,7 +16,8 @@ app.set('secretKey', 'nodeRestApi'); // jwt secret token
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(logger('dev'));
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.json({ "tutorial": "Build REST API with node.js" });
@@ -24,6 +26,7 @@ app.get('/', function (req, res) {
 app.use('/users', users);
 app.use('/blogs', blogs);
 app.use('/barangs', barangs);
+app.use('/todos', todos);
 // private route
 app.use('/movies', validateUser, movies);
 
@@ -53,7 +56,7 @@ app.use(function (req, res, next) {
 // handle errors
 app.use(function (err, req, res, next) {
     console.log(err);
-
+    console.log(err.status)
     if (err.status === 404)
         res.status(404).json({ message: "Not found" });
     else

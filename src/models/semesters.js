@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-//Define a schema
 const Schema = mongoose.Schema;
-const BlogSchema = new Schema({
-    title: {
-        type: String,
+
+const SemesterSchema = new Schema({
+    semester: {
+        type: Number,
         trim: true,
         required: true,
     },
-    description: {
+    tahun_ajaran: {
         type: String,
         trim: true,
         required: true
     }
 });
-module.exports = mongoose.model('Blog', BlogSchema)
+module.exports = mongoose.model('Semester', SemesterSchema)

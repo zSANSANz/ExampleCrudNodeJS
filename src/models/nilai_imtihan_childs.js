@@ -1,41 +1,36 @@
 const mongoose = require('mongoose');
-//Define a schema
 const Schema = mongoose.Schema;
-const BarangSchema = new Schema({
-    kode_barang: {
-        type: String,
-        trim: true,
-        required: true,
-    },
-    nama_barang: {
-        type: String,
-        trim: true,
-        required: true
-    },
-    harga_beli: {
+
+const NilaiImtihanChildsSchema = new Schema({
+    id_nilai_head: {
         type: Number,
         trim: true,
         required: true,
     },
-    harga_jual: {
+    id_semester: {
         type: Number,
         trim: true,
         required: true
     },
-    harga_1: {
-        type: Number,
-        trim: true,
-        required: true
-    },
-    harga_2: {
+    id_pelajar: {
         type: Number,
         trim: true,
         required: true,
     },
-    harga_3: {
+    id_pelajaran: {
+        type: Number,
+        trim: true,
+        required: true
+    },
+    nilai_imtihan: {
+        type: Number,
+        trim: true,
+        required: true,
+    },
+    nilai_imtihan_bobot: {
         type: Number,
         trim: true,
         required: true
     }
 });
-module.exports = mongoose.model('Barang', BarangSchema)
+module.exports = mongoose.model('NilaiImtihanChild', NilaiImtihanChildsSchema)

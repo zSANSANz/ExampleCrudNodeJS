@@ -2,22 +2,26 @@ const todoModel = require('../models/todos');
 module.exports = {
     getById: function (req, res, next) {
         console.log(req.body);
-        todoModel.findById(req.params.todoId, function (err, todoInfo) {
+        todoModel.findById(req.params.todoId, function (err, data) {
             if (err) {
                 next(err);
             } else {
-                res.json({ status: "success", message: "Todo Found!!!", data: { todos: todoInfo } });
+                res.json({ 
+                    status: "success",
+                    message: "Todo Found!!!",
+                    data
+                });
             }
         });
     },
     getAll: function (req, res, next) {
-        let todosList = [];
+        let data = [];
         todoModel.find({}, function (err, todos) {
             if (err) {
                 next(err);
             } else {
                 for (let todo of todos) {
-                    todosList.push({
+                    data.push({
                         id: todo._id,
                         todo_description: todo.todo_description,
                         todo_responsible: todo.todo_responsible,
@@ -25,8 +29,11 @@ module.exports = {
                         todo_completed: todo.todo_completed
                     });
                 }
-                res.json({ status: "success", message: "Todo list found!!!", data: { todos: todosList } });
-
+                res.json({ 
+                    status: "success",
+                    message: "Todo list found!!!",
+                    data 
+                });
             }
         });
     },
@@ -43,8 +50,8 @@ module.exports = {
             todo.save().then(todo => {
                 res.json('Todo updated!');
             }).catch(err => {
-                    res.status(400).send("Update not possible");
-                });
+                res.status(400).send("Update not possible");
+            });
         });
     },
     deleteById: function (req, res, next) {

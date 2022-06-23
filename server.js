@@ -1,16 +1,17 @@
 const express = require('express');
 const logger = require('morgan');
-const movies = require('./src/routes/movies');
+
 const users = require('./src/routes/users');
-const blogs = require('./src/routes/blogs');
-const barangs = require('./src/routes/barangs');
 const todos = require('./src/routes/todos');
+const mudirs = require('./src/routes/mudirs');
+
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
-var cors = require('cors')
+var cors = require('cors');
+
 const app = express();
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 8000
 app.set('secretKey', 'nodeRestApi'); // jwt secret token
 // connection to mongodb
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -24,11 +25,10 @@ app.get('/', function (req, res) {
 });
 // public route
 app.use('/users', users);
-app.use('/blogs', blogs);
-app.use('/barangs', barangs);
 app.use('/todos', todos);
+app.use('/mudirs', mudirs);
 // private route
-app.use('/movies', validateUser, movies);
+// app.use('/movies', validateUser, movies);
 
 
 app.get('/favicon.ico', function (req, res) {

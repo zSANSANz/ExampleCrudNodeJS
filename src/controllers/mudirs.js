@@ -28,7 +28,8 @@ module.exports = {
                         tempat_tanggal_lahir_tgl : mudir.tempat_tanggal_lahir_tgl,
                         tempat_tanggal_lahir_bln : mudir.tempat_tanggal_lahir_bln,
                         tempat_tanggal_lahir_tahun : mudir.tempat_tanggal_lahir_tahun,
-                        keluar : mudir.keluar
+                        keluar : mudir.keluar,
+                        created_at : mudir.created_at,
                     });
                 }
                 res.json({ 
@@ -49,7 +50,8 @@ module.exports = {
                 mudir.tempat_tanggal_lahir_tgl = req.body.tempat_tanggal_lahir_tgl,
                 mudir.tempat_tanggal_lahir_bln = req.body.tempat_tanggal_lahir_bln,
                 mudir.tempat_tanggal_lahir_tahun = req.body.tempat_tanggal_lahir_tahun,
-                mudir.keluar = req.body.keluar
+                mudir.keluar = req.body.keluar,
+                mudir.created_at = req.body.created_at,
             }
             mudir.save().then(mudir => {
                 res.json('Todo updated!');
@@ -75,6 +77,7 @@ module.exports = {
             tempat_tanggal_lahir_bln : req.body.tempat_tanggal_lahir_bln,
             tempat_tanggal_lahir_tahun : req.body.tempat_tanggal_lahir_tahun,
             keluar : req.body.keluar,
+            created_at : req.body.created_at,
         });
         mudir.save().then(mudir => {
             res.status(200).json({ 'mudir': 'mudir added successfully' });

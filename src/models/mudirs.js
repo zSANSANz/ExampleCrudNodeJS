@@ -8,26 +8,31 @@ const MudirSchema = new Schema({
         required: true,
     },
     tempat_tanggal_lahir_tempat: {
-        type: Date,
+        type: String,
         trim: true,
         required: true,
     },
     tempat_tanggal_lahir_tgl: {
-        type: Date,
+        type: String,
         trim: true,
         required: true,
     },
     tempat_tanggal_lahir_bln: {
-        type: Date,
+        type: String,
         trim: true,
         required: true,
     },
     tempat_tanggal_lahir_tahun: {
-        type: Date,
+        type: String,
         trim: true,
         required: true,
     },
     keluar: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    created_at: {
         type: Date,
         trim: true,
         required: true,

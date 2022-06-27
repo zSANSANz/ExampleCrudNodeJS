@@ -8,7 +8,7 @@ module.exports = {
             } else {
                 res.json({ 
                     status: "success",
-                    message: "Todo Found!!!",
+                    message: "Mudir Found!!!",
                     data
                 });
             }
@@ -34,7 +34,7 @@ module.exports = {
                 }
                 res.json({ 
                     status: "success",
-                    message: "Todo list found!!!",
+                    message: "Mudir list found!!!",
                     data 
                 });
             }
@@ -45,15 +45,15 @@ module.exports = {
             if (!mudir) {
                 res.status(404).send("data is not found");
             } else {
-                mudir.nama = req.body.nama,
-                mudir.tempat_tanggal_lahir_tempat = req.body.tempat_tanggal_lahir_tempat,
-                mudir.tempat_tanggal_lahir_tgl = req.body.tempat_tanggal_lahir_tgl,
-                mudir.tempat_tanggal_lahir_bln = req.body.tempat_tanggal_lahir_bln,
-                mudir.tempat_tanggal_lahir_tahun = req.body.tempat_tanggal_lahir_tahun,
-                mudir.keluar = req.body.keluar
+                mudir.nama = req.body.nama;
+                mudir.tempat_tanggal_lahir_tempat = req.body.tempat_tanggal_lahir_tempat;
+                mudir.tempat_tanggal_lahir_tgl = req.body.tempat_tanggal_lahir_tgl;
+                mudir.tempat_tanggal_lahir_bln = req.body.tempat_tanggal_lahir_bln;
+                mudir.tempat_tanggal_lahir_tahun = req.body.tempat_tanggal_lahir_tahun;
+                mudir.keluar = req.body.keluar;
             }
             mudir.save().then(mudir => {
-                res.json('Todo updated!');
+                res.json('Mudir updated!');
             }).catch(err => {
                 res.status(400).send("Update not possible");
             });
@@ -64,7 +64,7 @@ module.exports = {
             if (err)
                 next(err);
             else {
-                res.json({ status: "success", message: "Todo deleted successfully!!!", data: null });
+                res.json({ status: "success", message: "Mudir deleted successfully!!!", data: null });
             }
         });
     },

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const waliKelasController = require('../controllers/walikelass');
+const waliKelasController = require('../controllers/wali_kelass');
 router.get('/', waliKelasController.getAll);
 router.post('/', waliKelasController.create);
 router.get('/:waliKelasId', waliKelasController.getById);

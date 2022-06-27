@@ -4,7 +4,7 @@ const logger = require('morgan');
 const users = require('./src/routes/users');
 const todos = require('./src/routes/todos');
 const mudirs = require('./src/routes/mudirs');
-const wali_kelass = require('./src/models/wali_kelass');
+const wali_kelass = require('./src/routes/wali_kelass');
 
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration

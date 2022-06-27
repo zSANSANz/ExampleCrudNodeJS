@@ -30,7 +30,7 @@ const MudirSchema = new Schema({
     keluar: {
         type: String,
         trim: true,
-        required: true,
+        required: false,
     },
     created_at: {
         type: Date,

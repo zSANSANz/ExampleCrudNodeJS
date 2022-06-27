@@ -23,6 +23,7 @@ module.exports = {
                 for (let wali_kelas of wali_kelass) {
                     data.push({
                         id: wali_kelas._id,
+                        kelas : wali_kelas.kelas,
                         nama : wali_kelas.nama,
                         tempat_tanggal_lahir_tempat : wali_kelas.tempat_tanggal_lahir_tempat,
                         tempat_tanggal_lahir_tgl : wali_kelas.tempat_tanggal_lahir_tgl,
@@ -45,6 +46,7 @@ module.exports = {
             if (!wali_kelas) {
                 res.status(404).send("data is not found");
             } else {
+                wali_kelas.kelas = req.body.kelas;
                 wali_kelas.nama = req.body.nama;
                 wali_kelas.tempat_tanggal_lahir_tempat = req.body.tempat_tanggal_lahir_tempat;
                 wali_kelas.tempat_tanggal_lahir_tgl = req.body.tempat_tanggal_lahir_tgl;
@@ -70,6 +72,7 @@ module.exports = {
     },
     create: function (req, res, next) {
         let wali_kelas = new waliKelasModel({
+            kelas : req.body.kelas,
             nama : req.body.nama,
             tempat_tanggal_lahir_tempat : req.body.tempat_tanggal_lahir_tempat,
             tempat_tanggal_lahir_tgl : req.body.tempat_tanggal_lahir_tgl,

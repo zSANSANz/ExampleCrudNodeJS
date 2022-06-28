@@ -42,7 +42,7 @@ module.exports = {
         });
     },
     updateById: function (req, res, next) {
-        waliKelasModel.findById(req.params.wali_kelasId, function (err, wali_kelas) {
+        waliKelasModel.findById(req.params.waliKelasId, function (err, wali_kelas) {
             if (!wali_kelas) {
                 res.status(404).send("data is not found");
             } else {
@@ -62,7 +62,7 @@ module.exports = {
         });
     },
     deleteById: function (req, res, next) {
-        waliKelasModel.findByIdAndRemove(req.params.wali_kelasId, function (err, blogInfo) {
+        waliKelasModel.findByIdAndRemove(req.params.waliKelasIdId, function (err, blogInfo) {
             if (err)
                 next(err);
             else {

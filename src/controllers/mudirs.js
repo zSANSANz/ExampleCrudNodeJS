@@ -60,7 +60,7 @@ module.exports = {
         });
     },
     deleteById: function (req, res, next) {
-        mudirModel.findByIdAndRemove(req.params.mudirId, function (err, blogInfo) {
+        mudirModel.findByIdAndRemove(req.params.mudirId, function (err, mudir) {
             if (err)
                 next(err);
             else {

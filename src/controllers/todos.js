@@ -55,7 +55,7 @@ module.exports = {
         });
     },
     deleteById: function (req, res, next) {
-        todoModel.findByIdAndRemove(req.params.todoId, function (err, blogInfo) {
+        todoModel.findByIdAndRemove(req.params.todoId, function (err, todo) {
             if (err)
                 next(err);
             else {

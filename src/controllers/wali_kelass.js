@@ -62,7 +62,7 @@ module.exports = {
         });
     },
     deleteById: function (req, res, next) {
-        waliKelasModel.findByIdAndRemove(req.params.waliKelasIdId, function (err, blogInfo) {
+        waliKelasModel.findByIdAndRemove(req.params.waliKelasId, function (err, blogInfo) {
             if (err)
                 next(err);
             else {

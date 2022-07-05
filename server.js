@@ -5,6 +5,7 @@ const users = require('./src/routes/users');
 const todos = require('./src/routes/todos');
 const mudirs = require('./src/routes/mudirs');
 const wali_kelass = require('./src/routes/wali_kelass');
+const semesters = require('./src/routes/semesters');
 
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
@@ -29,6 +30,7 @@ app.use('/users', users);
 app.use('/todos', todos);
 app.use('/mudirs', mudirs);
 app.use('/wali_kelass', wali_kelass);
+app.use('/semesters', semesters);
 // private route
 // app.use('/movies', validateUser, movies);
 

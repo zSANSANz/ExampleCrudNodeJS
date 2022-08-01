@@ -7,6 +7,7 @@ const mudirs = require('./src/routes/mudirs');
 const wali_kelass = require('./src/routes/wali_kelass');
 const semesters = require('./src/routes/semesters');
 const nilai_heads = require('./src/routes/nilai_heads');
+const nilai_imtihan_childs = require('./src/routes/nilai_imtihan_childs');
 
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
@@ -33,6 +34,8 @@ app.use('/mudirs', mudirs);
 app.use('/wali_kelass', wali_kelass);
 app.use('/semesters', semesters);
 app.use('/nilai_heads', nilai_heads);
+app.use('/nilai_imtihan_childs', nilai_imtihan_childs);
+
 
 // private route
 // app.use('/movies', validateUser, movies);
